@@ -99,6 +99,19 @@ def movies_with_directors_set(source)
   #
   # Array of Arrays containing all of a director's movies. Each movie will need
   # to have a :director_name key added to it.
+    data_test.map do |value|
+    value[:movies].map do |movie|
+      movie[:director_name]=value[:name]
+    end#value[:director_name]=value[:name]
+  end
+#puts data_test
+  new_array=[]
+  data_test.map do |value|
+    value.delete(:name)
+    new_array << value[:movies]
+  end
+  new_array
+
 end
 
 # ----------------    End of Your Code Region --------------------
